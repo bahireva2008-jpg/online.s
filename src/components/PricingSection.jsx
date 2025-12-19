@@ -74,70 +74,69 @@ const PricingSection = () => {
   ];
 
   return (
-    <section className="bg-[#EDEFF1] py-16 lg:py-24">
-      <div className="container mx-auto px-4 max-w-screen-2xl">
+    <section className="bg-[#EDEFF1] py-8 sm:py-12 lg:py-24">
+      <div className="container mx-auto px-3 sm:px-4 max-w-screen-2xl">
         
         {/* Заголовок секции */}
-        <div className="text-center mb-12 lg:mb-16">
-          <h1 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 font-['Brygada_1918'] mb-4">
+        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 font-['Brygada_1918'] mb-3 sm:mb-4">
             Стоимость обучения
           </h1>
-          <p className="text-lg lg:text-xl text-gray-600 font-['Brygada_1918']">
+          <p className="text-sm sm:text-lg lg:text-xl text-gray-600 font-['Brygada_1918']">
             Найдите программу под ваши цели
           </p>
         </div>
         
-        {/* Сетка карточек */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        {/* Сетка карточек - на мобильных используем 1 колонку с узкими карточками */}
+        <div className="flex flex-col sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-8 max-w-md sm:max-w-none mx-auto">
           {courses.map((course, index) => (
             <div 
               key={index}
-              className="bg-white rounded-2xl p-6 lg:p-8 flex flex-col h-full transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl border border-gray-200"
+              className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 flex flex-col h-full transition-all duration-300 hover:scale-[1.01] sm:hover:scale-[1.02] hover:shadow-xl sm:hover:shadow-2xl border border-gray-200 w-full max-w-sm sm:max-w-none"
             >
               
               {/* Категория */}
-              <div className="mb-4">
-                <span className={`inline-block px-4 py-1.5 rounded-full ${course.categoryTextColor} ${course.categoryColor} text-sm font-semibold font-['Brygada_1918']`}>
+              <div className="mb-3 sm:mb-4">
+                <span className={`inline-block px-3 py-1 sm:px-4 sm:py-1.5 rounded-full ${course.categoryTextColor} ${course.categoryColor} text-xs sm:text-sm font-semibold font-['Brygada_1918']`}>
                   {course.category}
                 </span>
               </div>
               
               {/* Заголовок курса */}
-              <h3 className="text-xl lg:text-2xl font-bold text-gray-900 font-['Brygada_1918'] mb-3 lg:mb-4 leading-tight">
+              <h3 className="text-base sm:text-lg lg:text-2xl font-bold text-gray-900 font-['Brygada_1918'] mb-2 sm:mb-3 lg:mb-4 leading-tight">
                 {course.title}
               </h3>
               
               {/* Описание */}
-              <p className="text-gray-700 font-['Brygada_1918'] text-base lg:text-lg mb-4 lg:mb-6 flex-grow">
+              <p className="text-gray-700 font-['Brygada_1918'] text-sm sm:text-base lg:text-lg mb-3 sm:mb-4 lg:mb-6 flex-grow">
                 {course.description}
               </p>
               
               {/* Формат обучения */}
-              <div className="mb-4">
-                <span className="text-gray-800 font-medium font-['Brygada_1918']">
+              <div className="mb-3 sm:mb-4">
+                <span className="text-gray-800 font-medium font-['Brygada_1918'] text-sm sm:text-base">
                   {course.format}
                 </span>
               </div>
               
               {/* Цена и скидка */}
-              <div className="flex items-center justify-between mb-6 lg:mb-8">
+              <div className="flex items-center justify-between mb-4 sm:mb-6 lg:mb-8">
                 <div>
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-2xl lg:text-3xl font-bold text-gray-900 font-['Brygada_1918']">
+                  <div className="flex items-baseline gap-1.5 sm:gap-2">
+                    <span className="text-lg sm:text-xl lg:text-3xl font-bold text-gray-900 font-['Brygada_1918']">
                       {course.discountedPrice}
                     </span>
-                    <span className="text-lg lg:text-xl text-gray-500 line-through font-['Brygada_1918']">
+                    <span className="text-sm sm:text-lg lg:text-xl text-gray-500 line-through font-['Brygada_1918']">
                       {course.originalPrice}
                     </span>
                   </div>
                 </div>
-                
               </div>
               
               {/* Кнопка */}
               <button 
                 onClick={handleButtonClick}
-                className="w-full bg-[#513AA6] text-white font-semibold font-['Brygada_1918'] py-3 lg:py-4 rounded-lg text-lg lg:text-xl hover:bg-[#3d2c7d] transition-colors active:scale-[0.98] shadow-md hover:shadow-lg"
+                className="w-full bg-[#513AA6] text-white font-semibold font-['Brygada_1918'] py-2.5 sm:py-3 lg:py-4 rounded-lg text-sm sm:text-base lg:text-xl hover:bg-[#3d2c7d] transition-colors active:scale-[0.98] shadow-md hover:shadow-lg"
               >
                 Выбрать курс
               </button>
@@ -146,11 +145,11 @@ const PricingSection = () => {
           ))}
         </div>
         
-        {/* Дополнительный текст или кнопка "Показать еще" */}
-        <div className="text-center mt-12 lg:mt-16">
+        {/* Кнопка "Показать еще" */}
+        <div className="text-center mt-8 sm:mt-12 lg:mt-16">
           <button 
             onClick={handleButtonClick}
-            className="bg-transparent border-2 border-[#513AA6] text-[#513AA6] font-semibold font-['Brygada_1918'] px-8 py-3 rounded-lg text-lg hover:bg-[#513AA6] hover:text-white transition-all duration-300"
+            className="bg-transparent border border-[#513AA6] text-[#513AA6] font-semibold font-['Brygada_1918'] px-6 sm:px-8 py-2 sm:py-3 rounded-lg text-sm sm:text-lg hover:bg-[#513AA6] hover:text-white transition-all duration-300"
           >
             ...
           </button>
